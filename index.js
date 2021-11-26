@@ -6,6 +6,8 @@ const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./docs/swagger.json");
+const cors = require('cors');
+app.use(cors());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
