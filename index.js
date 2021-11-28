@@ -4,12 +4,13 @@ const dotenv = require("dotenv");
 const app = express();
 const userRoute = require("./routes/users");
 const pinRoute = require("./routes/pins");
-const swaggerUi = require("swagger-ui-express");
-const swaggerDocument = require("./docs/swagger.json");
 const cors = require('cors');
+
+const swagger = require("./swagger");
+swagger(app);
+
 app.use(cors());
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 dotenv.config();
 
